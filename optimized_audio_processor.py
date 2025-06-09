@@ -2,6 +2,7 @@ import base64
 import io
 from openai import OpenAI
 import re
+import streamlit as st
 
 
 class OptimizedAudioProcessor:
@@ -13,7 +14,7 @@ class OptimizedAudioProcessor:
             api_key (str): OpenAI API key. If None, uses the default key.
             character_desc (str): Character description for response generation.
         """
-        default_api_key = "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"
+        default_api_key = st.secrets["OPENAI_API_KEY"]
         self.client = OpenAI(api_key=api_key or default_api_key)
         
         self.character_desc = character_desc or """Aya is a Japanese girl, she is bold and confident, she is a student and likes to tease others"""
